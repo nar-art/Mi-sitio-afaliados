@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio de Reseñas - Los Mejores Productos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: #333;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            background: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .featured-products {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .featured-products h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .product-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .product-card p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .btn-amazon {
+            display: inline-block;
+            background: #ff9500;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-amazon:hover {
+            background: #e88400;
+        }
+
+        .disclaimer {
+            background: #f8f9fa;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .disclaimer p {
+            color: #666;
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mi Sitio de Reseñas</h1>
+            <p>Las mejores recomendaciones y reseñas de productos</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#tecnologia">Tecnología</a></li>
+                <li><a href="#hogar">Hogar</a></li>
+                <li><a href="#deportes">Deportes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h2>Encuentra los mejores productos con nuestras reseñas honestas</h2>
+            <p>Analizamos productos para que tomes la mejor decisión de compra</p>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <div class="container">
+            <h2>Productos Destacados</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3>🎧 Los Mejores Audífonos 2024</h3>
+                    <p>Descubre nuestra selección de los audífonos con mejor calidad-precio del mercado. Análisis detallado de sonido, comodidad y durabilidad.</p>
+                    <a href="#" class="btn-amazon">Ver en Amazon</a>
+                </div>
+
+                <div class="product-card">
+                    <h3>📱 Mejores Smartphones Calidad-Precio</h3>
+                    <p>Comparativa completa de los smartphones que ofrecen mejor rendimiento por su precio. Cámaras, batería y performance analizados.</p>
+                    <a href="#" class="btn-amazon">Ver en Amazon</a>
+                </div>
+
+                <div class="product-card">
+                    <h3>🏠 Electrodomésticos Inteligentes</h3>
+                    <p>Los gadgets para el hogar que realmente valen la pena. Desde asistentes virtuales hasta termostatos inteligentes.</p>
+                    <a href="#" class="btn-amazon">Ver en Amazon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="disclaimer">
+        <div class="container">
+            <p><strong>Aviso Legal:</strong> Este sitio contiene enlaces de afiliado de Amazon. Si realizas una compra a través de estos enlaces, podemos recibir una pequeña comisión sin costo adicional para ti. Esto nos ayuda a mantener el sitio y seguir creando contenido útil. Nuestras reseñas siempre son honestas e imparciales.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Mi Sitio de Reseñas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
