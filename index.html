@@ -1,395 +1,176 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Setup Pro - Los Mejores Accesorios Gaming y Oficina</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Setup Pro - Accesorios Gaming y Oficina</title>
+  <meta name="description" content="Guía con reseñas de accesorios gaming y oficina. Encuentra teclados, ratones, monitores y más para tu setup soñado.">
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
-            min-height: 100vh;
-        }
+  <!-- SEO / Open Graph -->
+  <meta property="og:title" content="Gaming Setup Pro - Accesorios Gaming y Oficina">
+  <meta property="og:description" content="Reseñas honestas de productos gaming y oficina.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="URL_DE_TU_IMAGEN_PREVIEW.jpg">
+  <meta property="og:url" content="https://tusitio.com">
 
-        header {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff3838 100%);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            position: relative;
-            z-index: 1;
-        }
-
-        header p {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        nav {
-            background: rgba(0,0,0,0.9);
-            padding: 1rem 0;
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid #ff6b6b;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav li {
-            margin: 0 25px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            color: #ff6b6b;
-            background: rgba(255,107,107,0.1);
-            transform: translateY(-2px);
-        }
-
-        .hero {
-            background: rgba(255,255,255,0.05);
-            padding: 4rem 0;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            margin: 2rem 0;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .featured-products {
-            padding: 4rem 0;
-            background: rgba(255,255,255,0.03);
-            margin: 2rem 0;
-            border-radius: 15px;
-        }
-
-        .featured-products h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .product-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            border-radius: 15px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,107,107,0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .product-card:hover::before {
-            left: 100%;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255,107,107,0.3);
-            border-color: #ff6b6b;
-        }
-
-        .product-card h3 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-card p {
-            margin-bottom: 2rem;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-price {
-            color: #ff6b6b;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-amazon {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff9500, #ff6b00);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 5px 15px rgba(255,149,0,0.4);
-        }
-
-        .btn-amazon:hover {
-            background: linear-gradient(45deg, #ff6b00, #ff9500);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255,149,0,0.6);
-        }
-
-        .category-section {
-            margin: 3rem 0;
-            padding: 2rem 0;
-        }
-
-        .category-title {
-            color: white;
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .disclaimer {
-            background: rgba(0,0,0,0.8);
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 2px solid #ff6b6b;
-            backdrop-filter: blur(10px);
-        }
-
-        .disclaimer p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        footer {
-            background: rgba(0,0,0,0.9);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 10px 0;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-    </style>
+  <!-- Estilos externos -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🎮 Recaidos</h1>
-            <p>Guía para tu setup gaming y oficina</p>
-        </div>
-    </header>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <h1>🎮 Recaidos</h1>
+      <p>Guía para tu setup gaming y oficina</p>
+    </div>
+  </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#inicio">🏠 Inicio</a></li>
-                <li><a href="#gaming">🎮 Gaming</a></li>
-                <li><a href="#oficina">💼 Oficina</a></li>
-                <li><a href="#iluminacion">💡 Iluminación</a></li>
-                <li><a href="#streaming">📹 Streaming</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- NAV -->
+  <nav aria-label="Menú principal">
+    <div class="container">
+      <ul>
+        <li><a href="#inicio">🏠 Inicio</a></li>
+        <li><a href="#gaming">🎮 Gaming</a></li>
+        <li><a href="#oficina">💼 Oficina</a></li>
+        <li><a href="#iluminacion">💡 Iluminación</a></li>
+        <li><a href="#streaming">📹 Streaming</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section class="hero" id="inicio">
-        <div class="container">
-            <h2>Construye tu Setup de Ensueño</h2>
-            <p>Reseñas honestas y recomendaciones</p>
-        </div>
-    </section>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <h2>Construye tu Setup de Ensueño</h2>
+      <p>Reseñas honestas y recomendaciones</p>
+    </div>
+  </section>
 
-    <section class="featured-products">
-        <div class="container">
-            <h2>🔥 Productos Más Populares</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <h3>⌨️ Teclados Mecánicos Gaming</h3>
-                    <div class="product-price">Desde $89.99</div>
-                    <p>Descubre los mejores teclados mecánicos para gaming. Análisis detallado de switches, retroiluminación RGB, y durabilidad. Cherry MX, Razer, Corsair y más.</p>
-                    <a href="#" class="btn-amazon">Ver en Amazon</a>
-                </div>
+  <!-- FEATURED PRODUCTS -->
+  <section class="featured-products" id="gaming">
+    <div class="container">
+      <h2>🔥 Productos Más Populares</h2>
+      <div class="products-grid">
+        
+        <article class="product-card">
+          <h3>⌨️ Teclados Mecánicos Gaming</h3>
+          <div class="product-price">Desde $89.99</div>
+          <p>Descubre los mejores teclados mecánicos para gaming. Switches, retroiluminación RGB y durabilidad.</p>
+          <a href="https://www.amazon.com/..."
+             class="btn-amazon"
+             rel="nofollow sponsored"
+             target="_blank">
+             Ver en Amazon
+          </a>
+        </article>
 
-                <div class="product-card">
-                    <h3>💡 Luces LED para Setup</h3>
-                    <div class="product-price">Desde $24.99</div>
-                    <p>Transforma tu espacio con las mejores tiras LED y luces ambientales. Philips Hue, Govee, Nanoleaf - comparativa completa de iluminación inteligente.</p>
-                    <a href="#" class="btn-amazon">Ver en Amazon</a>
-                </div>
+        <article class="product-card">
+          <h3>💡 Luces LED para Setup</h3>
+          <div class="product-price">Desde $24.99</div>
+          <p>Transforma tu espacio con tiras LED y luces ambientales: Philips Hue, Govee, Nanoleaf.</p>
+          <a href="https://www.amazon.com/..."
+             class="btn-amazon"
+             rel="nofollow sponsored"
+             target="_blank">
+             Ver en Amazon
+          </a>
+        </article>
 
-                <div class="product-card">
-                    <h3>🖥️ Monitores Gaming 144Hz+</h3>
-                    <div class="product-price">Desde $199.99</div>
-                    <p>Los monitores gaming más recomendados. 144Hz, 240Hz, 4K, ultrawide. ASUS, Acer, MSI - encuentra el monitor perfecto para tu setup.</p>
-                    <a href="#" class="btn-amazon">Ver en Amazon</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <article class="product-card">
+          <h3>🖥️ Monitores Gaming 144Hz+</h3>
+          <div class="product-price">Desde $199.99</div>
+          <p>Monitores recomendados: 144Hz, 240Hz, 4K, ultrawide. ASUS, Acer, MSI y más.</p>
+          <a href="https://www.amazon.com/..."
+             class="btn-amazon"
+             rel="nofollow sponsored"
+             target="_blank">
+             Ver en Amazon
+          </a>
+        </article>
 
-    <section class="category-section">
-        <div class="container">
-            <h2 class="category-title">🎯 Categorías Destacadas</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <h3>🖱️ Ratones Gaming</h3>
-                    <p>Logitech G Pro X, Razer DeathAdder, SteelSeries Rival - los ratones más precisos para cada tipo de juego.</p>
-                    <a href="#" class="btn-amazon">Explorar</a>
-                </div>
+      </div>
+    </div>
+  </section>
 
-                <div class="product-card">
-                    <h3>🎧 Auriculares Gaming</h3>
-                    <p>Audio inmersivo para gaming. HyperX, SteelSeries, Corsair - sonido 7.1, micrófonos de calidad profesional.</p>
-                    <a href="#" class="btn-amazon">Explorar</a>
-                </div>
+  <!-- CATEGORIES -->
+  <section class="category-section">
+    <div class="container">
+      <h2 class="category-title">🎯 Categorías Destacadas</h2>
+      <div class="products-grid">
 
-                <div class="product-card">
-                    <h3>🪑 Sillas Gaming</h3>
-                    <p>Comodidad para largas sesiones. DXRacer, SecretLab, Herman Miller - ergonomía y estilo para tu setup.</p>
-                    <a href="#" class="btn-amazon">Explorar</a>
-                </div>
+        <article class="product-card">
+          <h3>🖱️ Ratones Gaming</h3>
+          <p>Logitech, Razer, SteelSeries: los ratones más precisos para cada tipo de juego.</p>
+          <a href="https://www.amazon.com/..."
+             class="btn-amazon"
+             rel="nofollow sponsored"
+             target="_blank">Explorar</a>
+        </article>
 
-                <div class="product-card">
-                    <h3>📹 Equipos de Streaming</h3>
-                    <p>Webcams, micrófonos, luces de estudio. Elgato, Blue Yeti, Logitech - todo para streaming profesional.</p>
-                    <a href="#" class="btn-amazon">Explorar</a>
-                </div>
+        <article class="product-card">
+          <h3>🎧 Auriculares Gaming</h3>
+          <p>Audio inmersivo con HyperX, Corsair, SteelSeries. Sonido 7.1 y micrófonos pro.</p>
+          <a href="https://www.amazon.com/..."
+             class="btn-amazon"
+             rel="nofollow sponsored"
+             target="_blank">Explorar</a>
+        </article>
 
-                <div class="product-card">
-                    <h3>🔌 Accesorios de Oficina</h3>
-                    <p>Organizadores de cables, soportes para monitor, alfombrillas XXL - mantén tu setup ordenado y funcional.</p>
-                    <a href="#" class="btn-amazon">Explorar</a>
-                </div>
+        <article class="product-card">
+          <h3>🪑 Sillas Gaming</h3>
+          <p>Comodidad para largas sesiones: DXRacer, SecretLab, Herman Miller.</p>
+          <a href="https://www.amazon.com/..."
+             class="btn-amazon"
+             rel="nofollow sponsored"
+             target="_blank">Explorar</a>
+        </article>
 
-                <div class="product-card">
-                    <h3>⚡ Componentes PC</h3>
-                    <p>Tarjetas gráficas, procesadores, RAM gaming - las mejores ofertas en componentes para tu PC gaming.</p>
-                    <a href="#" class="btn-amazon">Explorar</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <article class="product-card">
+          <h3>📹 Equipos de Streaming</h3>
+          <p>Webcams, micrófonos, luces de estudio. Elgato, Blue Yeti, Logitech.</p>
+          <a href="https://www.amazon.com/..."
+             class="btn-amazon"
+             rel="nofollow sponsored"
+             target="_blank">Explorar</a>
+        </article>
 
-    <section class="disclaimer">
-        <div class="container">
-            <p><strong>⚠️ Aviso Legal:</strong> Este sitio contiene enlaces de afiliado de Amazon. Al realizar una compra a través de estos enlaces, recibimos una pequeña comisión sin costo adicional para ti. Esto nos permite mantener el sitio y seguir creando contenido útil. Todas nuestras reseñas son honestas e imparciales.</p>
-        </div>
-    </section>
+        <article class="product-card">
+          <h3>🔌 Accesorios de Oficina</h3>
+          <p>Organizadores, soportes de monitor, alfombrillas XXL.</p>
+          <a href="https://www.amazon.com/..."
+             class="btn-amazon"
+             rel="nofollow sponsored"
+             target="_blank">Explorar</a>
+        </article>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Gaming Setup Pro. Construye tu setup perfecto.</p>
-        </div>
-    </footer>
+        <article class="product-card">
+          <h3>⚡ Componentes PC</h3>
+          <p>Tarjetas gráficas, procesadores, RAM gaming. Ofertas en hardware.</p>
+          <a href="https://www.amazon.com/..."
+             class="btn-amazon"
+             rel="nofollow sponsored"
+             target="_blank">Explorar</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="disclaimer">
+    <div class="container">
+      <p><strong>⚠️ Aviso Legal:</strong> Este sitio contiene enlaces de afiliado de Amazon. Al comprar mediante ellos, recibimos una comisión sin costo adicional. Nuestras reseñas son honestas e imparciales.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Gaming Setup Pro. Construye tu setup perfecto.</p>
+    </div>
+  </footer>
 </body>
 </html>
