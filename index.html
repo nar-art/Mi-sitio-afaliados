@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gaming Setup Pro - Los Mejores Accesorios Gaming y Oficina</title>
   <meta name="description" content="Encuentra los mejores accesorios gaming y de oficina. Teclados mecánicos, mouse de alta precisión, sillas ergonómicas y más.">
+  <meta name="robots" content="index, follow">
 
-  <!-- Fuente Gamer -->
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -33,9 +34,7 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--color-bg);
@@ -115,10 +114,7 @@
       justify-content: center;
       transition: transform 0.3s;
     }
-
-    .theme-toggle:hover {
-      transform: rotate(15deg);
-    }
+    .theme-toggle:hover { transform: rotate(15deg); }
 
     /* ===== Hero ===== */
     .hero {
@@ -156,16 +152,13 @@
       box-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
       transition: 0.3s ease;
     }
-
     .btn-cta:hover {
       box-shadow: 0 0 25px rgba(0, 255, 153, 0.9);
       transform: scale(1.05);
     }
 
     /* ===== Productos ===== */
-    main {
-      display: block;
-    }
+    main { display: block; }
 
     .products {
       display: grid;
@@ -187,30 +180,25 @@
       opacity: 0;
       transform: translateY(30px);
     }
-
     .product-card.visible {
       opacity: 1;
       transform: translateY(0);
       transition: 0.6s ease;
     }
-
     .product-card:hover {
       transform: translateY(-10px) scale(1.02);
       box-shadow: 0 0 25px var(--color-primary);
     }
-
     .product-card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
     }
-
     .product-card h3 {
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
       color: var(--color-secondary);
     }
-
     .product-card p {
       font-size: 0.95rem;
       margin-bottom: 1rem;
@@ -227,7 +215,6 @@
       text-decoration: none;
       transition: 0.3s ease;
     }
-
     .btn-amazon:hover {
       box-shadow: 0 0 20px var(--color-secondary);
       transform: scale(1.05);
@@ -250,10 +237,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-      }
+      * { animation: none !important; transition: none !important; }
     }
   </style>
 </head>
@@ -288,21 +272,34 @@
       <img src="https://via.placeholder.com/300x200" alt="Teclado Mecánico RGB con retroiluminación" loading="lazy">
       <h3>Teclado Mecánico RGB</h3>
       <p>Ideal para gamers que buscan precisión y estilo.</p>
-      <a href="#" class="btn-amazon" target="_blank" rel="noopener">Ver en Amazon</a>
+      <a href="#catalogo" class="btn-amazon">Ver Catálogo</a>
     </article>
     <article class="product-card">
       <img src="https://via.placeholder.com/300x200" alt="Mouse Gaming Pro de alta precisión" loading="lazy">
       <h3>Mouse Gaming Pro</h3>
       <p>Diseño ergonómico y alta precisión para largas partidas.</p>
-      <a href="#" class="btn-amazon" target="_blank" rel="noopener">Ver en Amazon</a>
+      <a href="#catalogo" class="btn-amazon">Ver Catálogo</a>
     </article>
     <article class="product-card">
       <img src="https://via.placeholder.com/300x200" alt="Silla Ergonómica Gamer en color negro" loading="lazy">
       <h3>Silla Ergonómica Gamer</h3>
       <p>Comodidad total para tus sesiones de juego o trabajo.</p>
-      <a href="#" class="btn-amazon" target="_blank" rel="noopener">Ver en Amazon</a>
+      <a href="#catalogo" class="btn-amazon">Ver Catálogo</a>
     </article>
   </main>
+
+  <!-- ===== Catálogo ===== -->
+  <section id="catalogo" class="products">
+    <h2 style="grid-column: 1/-1; text-align:center; color: var(--color-secondary);">Catálogo Completo</h2>
+    <!-- Aquí puedes listar hasta 40 productos -->
+    <!-- Ejemplo -->
+    <article class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Auriculares inalámbricos gaming" loading="lazy">
+      <h3>Auriculares Inalámbricos</h3>
+      <p>Sonido envolvente para máxima inmersión.</p>
+      <a href="https://amazon.com" class="btn-amazon" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+    </article>
+  </section>
 
   <!-- ===== Footer ===== -->
   <footer id="contacto">
@@ -314,15 +311,20 @@
     // 🎇 Fondo de partículas
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
+
+    function resizeCanvas() {
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
     const particles = Array.from({ length: 80 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       r: Math.random() * 2 + 1,
-      dx: (Math.random() - 0.5) * 1,
-      dy: (Math.random() - 0.5) * 1
+      dx: (Math.random() - 0.5),
+      dy: (Math.random() - 0.5)
     }));
 
     function animateParticles() {
@@ -362,7 +364,6 @@
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.2 });
-
     cards.forEach(card => observer.observe(card));
   </script>
 </body>
