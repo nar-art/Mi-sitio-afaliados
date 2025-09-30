@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Productos - Gaming Setup Pro</title>
-  <meta name="description" content="Catálogo con los mejores accesorios gaming y de oficina. Teclados, mouse, sillas, auriculares y más.">
+  <title>Gaming Setup Pro - Los Mejores Accesorios Gaming y Oficina</title>
+  <meta name="description" content="Encuentra los mejores accesorios gaming y de oficina. Teclados mecánicos, mouse de alta precisión, sillas ergonómicas y más.">
+  <meta name="robots" content="index, follow">
 
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    /* 🎨 Variables globales */
     :root {
       --color-bg: #0d0d0d;
       --color-primary: #ff6b6b;
@@ -18,27 +20,151 @@
       --color-text: #f5f5f5;
     }
 
+    [data-theme="light"] {
+      --color-bg: #f5f5f5;
+      --color-text: #0d0d0d;
+      --color-primary: #ff3838;
+      --color-secondary: #009966;
+      --color-accent: #ff7a00;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
       background: var(--color-bg);
       color: var(--color-text);
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
-      margin: 0;
-      padding: 2rem;
+      overflow-x: hidden;
     }
 
-    h1 {
-      text-align: center;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: var(--color-secondary);
+    /* 🎇 Fondo animado */
+    #particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: var(--color-bg);
     }
+
+    /* ===== Header ===== */
+    header {
+      background: rgba(15, 15, 15, 0.7);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--color-primary);
+      text-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--color-text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--color-secondary);
+      text-shadow: 0 0 10px var(--color-secondary);
+      outline: none;
+    }
+
+    /* Toggle Dark/Light Mode */
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: var(--color-secondary);
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+    }
+    .theme-toggle:hover { transform: rotate(15deg); }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: rgba(255,255,255,0.05);
+      padding: 5rem 2rem;
+      border-radius: 20px;
+      margin: 3rem auto;
+      max-width: 1000px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      color: var(--color-secondary);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.8);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      background: linear-gradient(45deg, var(--color-accent), var(--color-primary));
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
+      transition: 0.3s ease;
+    }
+    .btn-cta:hover {
+      box-shadow: 0 0 25px rgba(0, 255, 153, 0.9);
+      transform: scale(1.05);
+    }
+
+    /* ===== Productos ===== */
+    main { display: block; }
 
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
+      padding: 3rem 2rem;
       max-width: 1200px;
       margin: auto;
     }
@@ -46,28 +172,33 @@
     .product-card {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
       border-radius: 15px;
       padding: 1.5rem;
       text-align: center;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .product-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: 0.6s ease;
     }
     .product-card:hover {
       transform: translateY(-10px) scale(1.02);
       box-shadow: 0 0 25px var(--color-primary);
     }
-
     .product-card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
     }
-
     .product-card h3 {
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
       color: var(--color-secondary);
     }
-
     .product-card p {
       font-size: 0.95rem;
       margin-bottom: 1rem;
@@ -82,43 +213,158 @@
       color: #fff;
       font-weight: bold;
       text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: 0.3s ease;
     }
     .btn-amazon:hover {
       box-shadow: 0 0 20px var(--color-secondary);
       transform: scale(1.05);
     }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #0b0b0b;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-top: 2rem;
+    }
+
+    /* ===== Animaciones ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
-  <h1>Catálogo de Productos</h1>
+  <!-- 🎇 Fondo animado -->
+  <canvas id="particles" aria-hidden="true"></canvas>
 
-  <section class="products">
-    <!-- Producto 1 -->
-    <article class="product-card">
-      <img src="imagenes/teclado.jpg" alt="Teclado Mecánico RGB" loading="lazy">
-      <h3>Teclado Mecánico RGB</h3>
-      <p>Precisión y estilo para gamers exigentes.</p>
-      <a href="https://amazon.com/tu-link-afiliado" target="_blank" rel="noopener noreferrer" class="btn-amazon">Ver en Amazon</a>
-    </article>
+  <!-- ===== Header ===== -->
+  <header>
+    <h1>🎮 Setup Pro</h1>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#ofertas">Ofertas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Producto 2 -->
-    <article class="product-card">
-      <img src="imagenes/mouse.jpg" alt="Mouse Gaming Logitech" loading="lazy">
-      <h3>Mouse Gaming Logitech</h3>
-      <p>Alta precisión y diseño ergonómico.</p>
-      <a href="https://amazon.com/tu-link-afiliado" target="_blank" rel="noopener noreferrer" class="btn-amazon">Ver en Amazon</a>
-    </article>
-
-    <!-- Producto 3 -->
-    <article class="product-card">
-      <img src="imagenes/silla.jpg" alt="Silla Gamer Ergonómica" loading="lazy">
-      <h3>Silla Gamer Ergonómica</h3>
-      <p>Comodidad total para largas sesiones.</p>
-      <a href="https://amazon.com/tu-link-afiliado" target="_blank" rel="noopener noreferrer" class="btn-amazon">Ver en Amazon</a>
-    </article>
-
-    <!-- Copia y pega más bloques como este hasta 40 productos -->
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="inicio">
+    <h2>Los Mejores Accesorios Gaming y de Oficina</h2>
+    <p>Explora nuestra selección de productos de calidad para llevar tu setup al siguiente nivel.</p>
+    <a href="#productos" class="btn-cta">Explorar Productos</a>
   </section>
+
+  <!-- ===== Productos ===== -->
+  <main id="productos" class="products">
+    <article class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Teclado Mecánico RGB con retroiluminación" loading="lazy">
+      <h3>Teclado Mecánico RGB</h3>
+      <p>Ideal para gamers que buscan precisión y estilo.</p>
+      <a href="#catalogo" class="btn-amazon">Ver Catálogo</a>
+    </article>
+    <article class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Mouse Gaming Pro de alta precisión" loading="lazy">
+      <h3>Mouse Gaming Pro</h3>
+      <p>Diseño ergonómico y alta precisión para largas partidas.</p>
+      <a href="#catalogo" class="btn-amazon">Ver Catálogo</a>
+    </article>
+    <article class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Silla Ergonómica Gamer en color negro" loading="lazy">
+      <h3>Silla Ergonómica Gamer</h3>
+      <p>Comodidad total para tus sesiones de juego o trabajo.</p>
+      <a href="#catalogo" class="btn-amazon">Ver Catálogo</a>
+    </article>
+  </main>
+
+  <!-- ===== Catálogo ===== -->
+  <section id="catalogo" class="products">
+    <h2 style="grid-column: 1/-1; text-align:center; color: var(--color-secondary);">Catálogo Completo</h2>
+    <!-- Aquí puedes listar hasta 40 productos -->
+    <!-- Ejemplo -->
+    <article class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Auriculares inalámbricos gaming" loading="lazy">
+      <h3>Auriculares Inalámbricos</h3>
+      <p>Sonido envolvente para máxima inmersión.</p>
+      <a href="https://amazon.com" class="btn-amazon" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+    </article>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer id="contacto">
+    <p>&copy; 2025 Gaming Setup Pro - Sitio de Afiliados de Amazon</p>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // 🎇 Fondo de partículas
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const particles = Array.from({ length: 80 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5),
+      dy: (Math.random() - 0.5)
+    }));
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0,255,153,0.7)';
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // 🌙 Toggle Dark/Light Mode
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', currentTheme);
+    themeToggle.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+
+    themeToggle.addEventListener('click', () => {
+      const theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      body.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+    });
+
+    // 🌀 Animación al hacer scroll (IntersectionObserver)
+    const cards = document.querySelectorAll('.product-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(card => observer.observe(card));
+  </script>
 </body>
 </html>
